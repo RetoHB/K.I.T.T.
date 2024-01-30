@@ -9,5 +9,5 @@ Parts required:
 - Power Supply – 5V power supply. I recommend the official Raspberry Pi power supply: https://www.adafruit.com/product/4298
 - USB Microphone – for talking to K.I.T.T. Any USB mic should work, and this inexpensive one is sufficient: https://www.adafruit.com/product/3367
 - USB speaker – for K.I.T.T. to talk back to you. I used this one: https://www.adafruit.com/product/3369
-- my voicebox PCB. I may have some unpoplutaed boards left... contact me
+- my voicebox PCB. https://github.com/RetoHB/K.I.T.T./tree/main/voicebox_pcb I may have some unpoplutaed boards left... contact me
 - some nice housing, to be designed...
