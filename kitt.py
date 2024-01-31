@@ -1,4 +1,4 @@
-# the following program is provided by DevMiser - https://github.com/DevMiser
+# the following program is provided by RetoHB - https://github.com/RetoHB
 
 #!/usr/bin/env python3
 
@@ -30,18 +30,7 @@ from time import sleep
 
 from vu_meter.vu_meter import play_and_vu
 from vu_meter.vu_display.vu_display import disp_amp
-
-#GPIO.setmode(GPIO.BCM)
-#led1_pin=18
-#led2_pin=24
-
-#GPIO.setup(led1_pin, GPIO.OUT)
-#GPIO.output(led1_pin, GPIO.LOW)
-
-#GPIO.setup(led2_pin, GPIO.OUT)
-#GPIO.output(led2_pin, GPIO.LOW)
-
-#os.system("echo gpio | sudo tee /sys/class/leds/ACT/trigger >/dev/null 2>&1")
+from vu_meter.vu_display.vu_display import setup_vu_meter
 
 audio_stream = None
 cobra = None
@@ -67,7 +56,6 @@ prompt = ["How may I assist you?",
 
 chat_log=[
     {"role": "system", "content": "Your name is kitt. If you are asked about yourself, you answer with the following exact phrase: 'I am the voice of the Knight Industries Two Thousand microprocessor. K.I.T.T for easy reference, KITT if you prefer.' Do not repeat this too often."},
-#    {"role": "system", "content": "I am your AI bot. My name is DaVinci"}
     ]
 
 def ChatGPT(query):
@@ -92,7 +80,7 @@ def responseprinter(chat):
        print(word, end="", flush=True)
     print("\n")
 
-#DaVinci will 'remember' earlier queries so that it has greater continuity in its response
+#K.I.T.T. will 'remember' earlier queries so that it has greater continuity in its response
 #the following will delete that 'memory' five minutes after the start of the conversation
 def append_clear_countdown():
     sleep(300)
@@ -100,7 +88,6 @@ def append_clear_countdown():
     chat_log.clear()
     chat_log=[
         {"role": "system", "content": "Your name is kitt. If you are asked about yourself, you answer with the following exact phrase: 'I am the voice of the Knight Industries Two Thousand microprocessor. K.I.T.T for easy reference, KITT if you prefer' Do not repeat this too often."},
-#        {"role": "system", "content": "I am your bot AI bot. My name is DaVinci"}
         ]
     global count
     count = 0
@@ -122,40 +109,12 @@ def voice(chat):
     else:
         print("did not work")
 
-#    pygame.mixer.init()
-#    pygame.mixer.music.load(output_file)
-#    pygame.mixer.music.set_volume(1.0) # uncomment to control the the playback volume (from 0.0 to 1.0)
-#    pygame.mixer.music.play()
-#    while pygame.mixer.music.get_busy():
-#        pass
     play_and_vu("speech.mp3")
     sleep(0.2)
 
-#def fade_leds(event):
-#    pwm1 = GPIO.PWM(led1_pin, 200)
-#    pwm2 = GPIO.PWM(led2_pin, 200)
-
-#    event.clear()
-
-#    while not event.is_set():
-#        pwm1.start(0)
-#        pwm2.start(0)
-#        for dc in range(0, 101, 5):
-#            pwm1.ChangeDutyCycle(dc)
-#            pwm2.ChangeDutyCycle(dc)
-#            time.sleep(0.05)
-#        time.sleep(0.75)
-#        for dc in range(100, -1, -5):
-#            pwm1.ChangeDutyCycle(dc)
-#            pwm2.ChangeDutyCycle(dc)
-#            time.sleep(0.05)
-#        time.sleep(0.75)
-
 def wake_word():
 
-#    keywords = ["computer"]
     porcupine = pvporcupine.create(keyword_paths=["Hey-Kitt_en_raspberry-pi_v3_0_0.ppn"],
-#    porcupine = pvporcupine.create(keywords=keywords,
                             access_key=pv_access_key,
                             sensitivities=[0.1], #from 0 to 1.0 - a higher number reduces the miss rate at the cost of increased false alarms
                                    )
@@ -181,10 +140,8 @@ def wake_word():
     pygame.mixer.music.play()
 
     disp_amp(10)
-#    sleep(0.5)
-#    disp_amp(0)
-
-#    os.system("echo 0 | sudo tee /sys/class/leds/ACT/brightness >/dev/null 2>&1")
+    sleep(0.2)
+    disp_amp(0)
 
     while Detect:
         porcupine_pcm = porcupine_audio_stream.read(porcupine.frame_length)
@@ -193,10 +150,6 @@ def wake_word():
         porcupine_keyword_index = porcupine.process(porcupine_pcm)
 
         if porcupine_keyword_index >= 0:
-
-#            GPIO.output(led1_pin, GPIO.HIGH)
-#            GPIO.output(led2_pin, GPIO.HIGH)
-#            keyword = keywords[porcupine_keyword_index]
             keyword = "K.I.T.T."
             print(Fore.GREEN + "\n" + keyword + " detected\n")
             porcupine_audio_stream.stop_stream
@@ -205,7 +158,6 @@ def wake_word():
             os.dup2(old_stderr, 2)
             os.close(old_stderr)
             Detect = False
-#            os.system("echo 1 | sudo tee /sys/class/leds/ACT/brightness >/dev/null 2>&1")
             global sleeping
             sleeping = 0
 
@@ -275,8 +227,6 @@ def detect_silence():
             silence_duration = time.time() - last_voice_time
             if silence_duration > 1.3:
                 print("End of query detected\n")
-#                GPIO.output(led1_pin, GPIO.LOW)
-#                GPIO.output(led2_pin, GPIO.LOW)
                 cobra_audio_stream.stop_stream
                 cobra_audio_stream.close()
                 cobra.delete()
@@ -330,6 +280,7 @@ try:
         )
 
     event = threading.Event()
+    setup_vu_meter()
 
     count = 0
 
@@ -363,11 +314,7 @@ try:
             sleep(0.2)
             disp_amp(0)
 
-#            while pygame.mixer.music.get_busy():
-#                pass
-#            sleep(0.2)
-
-# comment out the next line if you do not want DaVinci to respond to his name
+# comment out the next line if you do not want K.I.T.T. to respond to his name
 #            voice(random.choice(prompt))
             recorder = Recorder()
             recorder.start()
@@ -381,11 +328,9 @@ try:
 
             detect_silence()
             transcript, words = o.process(recorder.stop())
-#            t_fade = threading.Thread(target=fade_leds, args=(event,))
-#            t_fade.start()
             recorder.stop()
             print(transcript)
-#                voice(transcript) # uncomment to have DaVinci repeat what it heard
+#                voice(transcript) # uncomment to have K.I.T.T. repeat what it heard
             (res) = ChatGPT(transcript)
             print("\nChatGPT's response is:\n")
             t1 = threading.Thread(target=voice, args=(res,))
@@ -396,8 +341,6 @@ try:
             t1.join()
             t2.join()
             event.set()
-#            GPIO.output(led1_pin, GPIO.LOW)
-#            GPIO.output(led2_pin, GPIO.LOW)
             recorder.stop()
             o.delete
             recorder = None
@@ -406,8 +349,6 @@ try:
             print("\nThere was an API error.  Please try again in a few minutes.")
             voice("\nThere was an A P I error.  Please try again in a few minutes.")
             event.set()
-#            GPIO.output(led1_pin, GPIO.LOW)
-#            GPIO.output(led2_pin, GPIO.LOW)
             recorder.stop()
             o.delete
             recorder = None
@@ -417,8 +358,6 @@ try:
             print("\nYou have hit your assigned rate limit.")
             voice("\nYou have hit your assigned rate limit.")
             event.set()
-#            GPIO.output(led1_pin, GPIO.LOW)
-#            GPIO.output(led2_pin, GPIO.LOW)
             recorder.stop()
             o.delete
             recorder = None
@@ -428,8 +367,6 @@ try:
             print("\nI am having trouble connecting to the API.  Please check your network connection and then try again.")
             voice("\nI am having trouble connecting to the A P I.  Please check your network connection and try again.")
             event.set()
-#            GPIO.output(led1_pin, GPIO.LOW)
-#            GPIO.output(led2_pin, GPIO.LOW)
             recorder.stop()
             o.delete
             recorder = None
@@ -439,8 +376,6 @@ try:
             print("\nYour OpenAI API key or token is invalid, expired, or revoked.  Please fix this issue and then restart my program.")
             voice("\nYour Open A I A P I key or token is invalid, expired, or revoked.  Please fix this issue and then restart my program.")
             event.set()
-#            GPIO.output(led1_pin, GPIO.LOW)
-#            GPIO.output(led2_pin, GPIO.LOW)
             recorder.stop()
             o.delete
             recorder = None
@@ -449,4 +384,3 @@ try:
 except KeyboardInterrupt:
     print("\n\nExiting ChatGPT Virtual Assistant\n")
     o.delete
-#    GPIO.cleanup()
