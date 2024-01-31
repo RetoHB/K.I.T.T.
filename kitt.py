@@ -31,8 +31,6 @@ from time import sleep
 from vu_meter.vu_meter import play_and_vu
 from vu_meter.vu_display.vu_display import disp_amp
 
-#GPIO.setwarnings(False)
-
 #GPIO.setmode(GPIO.BCM)
 #led1_pin=18
 #led2_pin=24
