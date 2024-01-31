@@ -9,7 +9,6 @@ import pvcobra
 import pvleopard
 import pvporcupine
 import pyaudio
-#import random
 import struct
 import sys
 import textwrap
