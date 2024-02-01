@@ -290,7 +290,7 @@
       (net 41 "unconnected-(BAR3-K-Pad20)") (pinfunction "K") (pintype "passive") (tstamp fe96c7ad-1e31-455f-876e-a78bcc7cac38))
     (model "${KICAD6_3DMODEL_DIR}/Display.3dshapes/HDSP-4830.wrl"
       (offset (xyz 0 0 0))
-      (scale (xyz 1 1 1))
+      (scale (xyz 1 1 1.5))
       (rotate (xyz 0 0 0))
     )
   )
@@ -462,7 +462,7 @@
       (net 21 "GND") (pinfunction "K") (pintype "passive") (tstamp e10f82fe-b91f-4aef-b419-e0715f1f65cc))
     (model "${KICAD6_3DMODEL_DIR}/Display.3dshapes/HDSP-4830.wrl"
       (offset (xyz 0 0 0))
-      (scale (xyz 1 1 1))
+      (scale (xyz 1 1 1.5))
       (rotate (xyz 0 0 0))
     )
   )
@@ -656,7 +656,7 @@
       (net 67 "unconnected-(BAR5-K-Pad20)") (pinfunction "K") (pintype "passive") (tstamp 8148452d-132d-4940-8052-f8bb5bdca62c))
     (model "${KICAD6_3DMODEL_DIR}/Display.3dshapes/HDSP-4830.wrl"
       (offset (xyz 0 0 0))
-      (scale (xyz 1 1 1))
+      (scale (xyz 1 1 1.5))
       (rotate (xyz 0 0 0))
     )
   )
@@ -1080,7 +1080,7 @@
       (net 21 "GND") (pinfunction "K") (pintype "passive") (tstamp ac1dd9f9-c454-45a9-bf52-bedc7c784ac5))
     (model "${KICAD6_3DMODEL_DIR}/Display.3dshapes/HDSP-4830.wrl"
       (offset (xyz 0 0 0))
-      (scale (xyz 1 1 1))
+      (scale (xyz 1 1 1.5))
       (rotate (xyz 0 0 0))
     )
   )
@@ -1180,7 +1180,7 @@
       (net 21 "GND") (pinfunction "K") (pintype "passive") (tstamp 49a2da68-a7c6-47c9-8f19-7e08942e3197))
     (model "${KICAD6_3DMODEL_DIR}/Display.3dshapes/HDSP-4830.wrl"
       (offset (xyz 0 0 0))
-      (scale (xyz 1 1 1))
+      (scale (xyz 1 1 1.5))
       (rotate (xyz 0 0 0))
     )
   )
@@ -1280,7 +1280,7 @@
       (net 20 "Net-(BAR1-K-Pad20)") (pinfunction "K") (pintype "passive") (tstamp 64783301-0777-49db-9cb1-7a8d95aeee22))
     (model "${KICAD6_3DMODEL_DIR}/Display.3dshapes/HDSP-4830.wrl"
       (offset (xyz 0 0 0))
-      (scale (xyz 1 1 1))
+      (scale (xyz 1 1 1.5))
       (rotate (xyz 0 0 0))
     )
   )
