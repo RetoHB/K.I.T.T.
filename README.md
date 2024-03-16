@@ -15,24 +15,25 @@ Parts required:
 
 ## Creating required API keys
 ### Create an OpenAI Account and create a secret key
-Create an account on https://openai.com  
-Sign in and click on your personal icon in the upper right-corner and then click on "View API keys". Click on "Create new secret key" and copy the key for later use.  
+- Create an account on https://openai.com
+- Sign in and click on your personal icon in the upper right-corner and then click on "View API keys". Click on "Create new secret key" and copy the key for later use.
+
 I think you need to make sure to have a positive credit balance in your account. I do not remember if you get a free amount to start with when opening an account.
 
 ### Create Picovoice Account and create access key
-Create a free account on https://picovoice.ai
-Sign in and copy your AccessKey for later use
+- Create a free account on https://picovoice.ai
+- Sign in and copy your AccessKey for later use
 
 ### Create AWS IAM account and obtain AWS access key and secret access key
-This is the trickiest step...  
-Create a free AWS account on https://aws.amazon.com/free/  
-Go to the IAM dashboard under https://console.aws.amazon.com/iamv2  
-Select "User groups" from the menu on the left side, then click "Create group" in the upper right corner.  
-As group name enter "Polly".  
-Under "Attach permission policies - Optional" search for "Polly" and select "AmazonPollyFullAccess".  
-Then select "Users" from the menu on the left side and click "Add users" in the upper right corner.  
-Type "Polly_User" and click next.  
-Under Permission options select "Add user to group" and check the box next to "Polly" under "User groups". Click next.  
-Click "Create User" and then "View User".  
-In the tab "Security credentials" click "Create access key". Select "Command Line Interface (CLI), tick the box at the bottom and click "Create access key".  
-On the next page copy both "Access key" and "Secret access key" for later use.
+This is the trickiest step...
+- Create a free AWS account on https://aws.amazon.com/free/
+- Go to the IAM dashboard under https://console.aws.amazon.com/iamv2
+- Select "User groups" from the menu on the left side, then click "Create group" in the upper right corner.
+- As group name enter "Polly".
+- Under "Attach permission policies - Optional" search for "Polly" and select "AmazonPollyFullAccess".
+- Then select "Users" from the menu on the left side and click "Add users" in the upper right corner.
+- Type "Polly_User" and click next.
+- Under Permission options select "Add user to group" and check the box next to "Polly" under "User groups". Click next.
+- Click "Create User" and then "View User".
+- In the tab "Security credentials" click "Create access key". Select "Command Line Interface (CLI), tick the box at the bottom and click "Create access key".
+- On the next page copy both "Access key" and "Secret access key" for later use.
