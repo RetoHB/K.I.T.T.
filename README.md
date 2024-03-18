@@ -37,3 +37,35 @@ This is the trickiest step...
 - Click "Create User" and then "View User".
 - In the tab "Security credentials" click "Create access key". Select "Command Line Interface (CLI), tick the box at the bottom and click "Create access key".
 - On the next page copy both "Access key" and "Secret access key" for later use.
+
+## Install required software on Raspberry Pi
+Edit the bashrc file with `sudo nano ~/.bashrc`  
+At the bottom add:
+```
+# sets a location where the Raspberry Pi OS and Python can look for
+# executable/configuration files
+export PATH="$HOME/.local/bin:$PATH"
+```
+Press `Ctrl + x` and answer with `y`  
+`sudo reboot` to reboot your Raspberry Pi  
+When back up enter the following commands, one by one. Answer with `y` when asked:
+```
+sudo apt update
+sudo apt full-upgrade
+pip3 install --upgrade pip
+sudo apt-get install portaudio19-dev
+pip3 install pyaudio
+pip3 install pvrecorder
+pip3 install pvporcupine
+pip3 install pvcobra
+pip3 install pvleopard
+pip3 install --upgrade openai
+pip3 install boto3
+pip3 install awscli
+sudo reboot
+```
+The Raspberry Pi reboots again. When back up enter:
+`aws configure`  
+Enter the keys when asked, for the region name enter the closest to you from this list: https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints  
+`Default output format` can be left emtpy.  
+
