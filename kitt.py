@@ -41,7 +41,7 @@ recorder = None
 wav_file = None
 sleeping = 0
 
-GPT_model = "gpt-4" # most capable GPT model and optimized for chat.  You can substitute with gpt-3.5-turbo for lower cost and latency. gpt-4
+GPT_model = "gpt-4-turbo-preview" # most capable GPT model and optimized for chat. You can substitute with gpt-3.5-turbo for lower cost or gpt-4.
 openai.api_key = keys.openai
 pv_access_key = keys.pv
 
@@ -55,7 +55,7 @@ prompt = ["How may I assist you?",
     "I'm listening."]
 
 chat_log=[
-    {"role": "system", "content": "Your name is kitt. If you are asked about yourself, you answer with the following exact phrase: 'I am the voice of the Knight Industries Two Thousand microprocessor. K.I.T.T for easy reference, KITT if you prefer.' Do not repeat this too often."},
+    {"role": "system", "content": "Your name is kitt. If you are asked about yourself, you answer with the following exact phrase: 'I am the voice of the Knight Industries Two Thousand microprocessor. K.I.T.T for easy reference, KITT if you prefer.' Do not repeat this too often. Your maximum response length should not exceed 50 words."},
     ]
 
 def ChatGPT(query):
@@ -87,13 +87,21 @@ def append_clear_countdown():
     global chat_log
     chat_log.clear()
     chat_log=[
-        {"role": "system", "content": "Your name is kitt. If you are asked about yourself, you answer with the following exact phrase: 'I am the voice of the Knight Industries Two Thousand microprocessor. K.I.T.T for easy reference, KITT if you prefer' Do not repeat this too often."},
+        {"role": "system", "content": "Your name is kitt. If you are asked about yourself, you answer with the following exact phrase: 'I am the voice of the Knight Industries Two Thousand microprocessor. K.I.T.T for easy reference, KITT if you prefer' Do not repeat this too often. Your maximum response length should not exceed 50 words."},
         ]
     global count
     count = 0
     t_count.join
 
 def voice(chat):
+
+#    response = client.audio.speech.create(
+#        model="tts-1",
+#        voice="onyx",
+#        input=chat
+#    )
+
+#    response.stream_to_file("speech.mp3")
 
     voiceResponse = polly.synthesize_speech(Text=chat, OutputFormat="mp3",
                     VoiceId="Matthew") #other options include Amy, Joey, Nicole, Raveena, Russell and Matthew
@@ -113,8 +121,7 @@ def voice(chat):
     sleep(0.2)
 
 def wake_word():
-
-    porcupine = pvporcupine.create(keyword_paths=["Hey-Kitt_en_raspberry-pi_v3_0_0.ppn"],
+    porcupine = pvporcupine.create(keyword_paths=[os.path.dirname(__file__) +  "/Hey-Kitt_en_raspberry-pi_v3_0_0.ppn"],
                             access_key=pv_access_key,
                             sensitivities=[0.1], #from 0 to 1.0 - a higher number reduces the miss rate at the cost of increased false alarms
                                    )
@@ -306,16 +313,14 @@ try:
             else:
                 pass
 
-            pygame.mixer.init()
-            pygame.mixer.music.load("tick.mp3")
-            pygame.mixer.music.play()
+#            pygame.mixer.init()
+#            pygame.mixer.music.load("tick.mp3")
+#            pygame.mixer.music.play()
 
             disp_amp(1)
             sleep(0.2)
             disp_amp(0)
 
-# comment out the next line if you do not want K.I.T.T. to respond to his name
-#            voice(random.choice(prompt))
             recorder = Recorder()
             recorder.start()
             listen()
@@ -330,14 +335,12 @@ try:
             transcript, words = o.process(recorder.stop())
             recorder.stop()
             print(transcript)
-#                voice(transcript) # uncomment to have K.I.T.T. repeat what it heard
             (res) = ChatGPT(transcript)
             print("\nChatGPT's response is:\n")
             t1 = threading.Thread(target=voice, args=(res,))
             t2 = threading.Thread(target=responseprinter, args=(res,))
-            t2.start()
-            sleep(1)
             t1.start()
+            t2.start()
             t1.join()
             t2.join()
             event.set()
@@ -382,5 +385,5 @@ try:
             break
 
 except KeyboardInterrupt:
-    print("\n\nExiting ChatGPT Virtual Assistant\n")
+    print("\n\nExiting K.I.T.T.\n")
     o.delete

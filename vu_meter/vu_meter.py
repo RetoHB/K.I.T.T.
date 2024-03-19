@@ -4,9 +4,9 @@ from pydub import AudioSegment
 import pyaudio
 from .amplitude import Amplitude
 import os
-from .vu_constants import SHORT_NORMALIZE
 from .vu_display.vu_display import setup_vu_meter
 from .vu_display.vu_display import disp_amp
+SHORT_NORMALIZE = 1.0 / 32768.0
 
 def play_and_vu(mp3_file):
     audio = pyaudio.PyAudio()
