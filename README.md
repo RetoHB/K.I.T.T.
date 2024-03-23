@@ -67,3 +67,13 @@ The Raspberry Pi reboots again. When back up enter:
 Enter the keys when asked, for the region name enter the closest to you from this list: https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints  
 `Default output format` can be left emtpy.  
 
+## Install the K.I.T.T. program
+Enter `git clone https://github.com/RetoHB/K.I.T.T..git` (make sure to type the double point before git)  
+Enter the directory which has been created by typing `cd K.I.T.T.`  
+Modify the keys.py file with `sudo nano keys.py`  
+Between the quotations marks enter your personal keys and save and close by hitting `Ctrl + x` and `y`  
+
+## Run the K.I.T.T. program
+From within the K.I.T.T. directory type `python kitt.py`to start the program  
+Say `hey kitt` to make K.I.T.T. listen to your query. Ask him whatever you want.  
+After 15 seconds of silence K.I.T.T. will go to sleep. You can wake him up by saying `hey kitt` again.  
