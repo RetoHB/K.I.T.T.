@@ -77,3 +77,5 @@ Between the quotations marks enter your personal keys and save and close by hitt
 From within the K.I.T.T. directory type `python kitt.py`to start the program  
 Say `hey kitt` to make K.I.T.T. listen to your query. Ask him whatever you want.  
 After 15 seconds of silence K.I.T.T. will go to sleep. You can wake him up by saying `hey kitt` again.  
+
+To exit K.I.T.T. hit `Ctrl + c`
