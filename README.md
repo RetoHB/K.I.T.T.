@@ -73,7 +73,7 @@ Enter the keys when asked, for the region name enter the closest to you from thi
 Enter `git clone https://github.com/RetoHB/K.I.T.T..git` (make sure to type the double point before git)  
 Enter the directory which has been created by typing `cd K.I.T.T.`  
 Modify the keys.py file with `sudo nano keys.py`  
-Between the quotations marks enter your personal keys and save and close by hitting `Ctrl + x` and `y`  
+Between the quotations marks enter your personal openai and picovoice keys created earlier. Save and close by hitting `Ctrl + x` and `y`  
 
 ## Run the K.I.T.T. program
 From within the K.I.T.T. directory type `python kitt.py`to start the program  
