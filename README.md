@@ -61,6 +61,7 @@ When back up enter the following commands, one by one. Answer with `y` when aske
 `pip3 install --upgrade openai`  
 `pip3 install boto3`  
 `pip3 install awscli`  
+`pip3 install sounddevice`
 `sudo reboot`  
 The Raspberry Pi reboots again. When back up enter:
 `aws configure`  
