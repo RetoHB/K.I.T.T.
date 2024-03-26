@@ -69,6 +69,10 @@ The Raspberry Pi reboots again. When back up enter:
 Enter the keys when asked, for the region name enter the closest to you from this list: https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints  
 `Default output format` can be left emtpy.  
 
+When completed enter `sudo raspi-config` and navigate to `3 Interface Options` -> `Ì4 I2C` and select `Yes`. Hit enter and leave raspi-config.  
+`sudo reboot`  
+Your Raspberry Pi reboots again.
+
 ## Install the K.I.T.T. program
 Enter `git clone https://github.com/RetoHB/K.I.T.T..git` (make sure to type the double point before git)  
 Enter the directory which has been created by typing `cd K.I.T.T.`  
