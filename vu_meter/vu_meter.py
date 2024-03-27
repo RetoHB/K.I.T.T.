@@ -13,7 +13,7 @@ def play_and_vu(mp3_file):
     setup_vu_meter()
 
     try:
-        chunk = 256
+        chunk = 100
 
         sound = AudioSegment.from_mp3(mp3_file)
         wav_form = sound.export(format="wav")
