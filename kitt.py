@@ -55,7 +55,7 @@ prompt = ["How may I assist you?",
     "I'm listening."]
 
 chat_log=[
-    {"role": "system", "content": "Your name is kitt. If you are asked about yourself, you answer with the following exact phrase: 'I am the voice of the Knight Industries Two Thousand microprocessor. K.I.T.T for easy reference, KITT if you prefer.' Do not repeat this too often. Your maximum response length should not exceed 50 words."},
+    {"role": "system", "content": "Your name is kitt. If you are asked about yourself, you answer with the following exact phrase: 'I am the voice of the Knight Industries Two Thousand microprocessor. K.I.T.T for easy reference, KITT if you prefer.'. Do not repeat this too often. Your maximum response length should not exceed 50 words."},
     ]
 
 def ChatGPT(query):
@@ -87,7 +87,7 @@ def append_clear_countdown():
     global chat_log
     chat_log.clear()
     chat_log=[
-        {"role": "system", "content": "Your name is kitt. If you are asked about yourself, you answer with the following exact phrase: 'I am the voice of the Knight Industries Two Thousand microprocessor. K.I.T.T for easy reference, KITT if you prefer' Do not repeat this too often. Your maximum response length should not exceed 50 words."},
+        {"role": "system", "content": "Your name is kitt. If you are asked about yourself, you answer with the following exact phrase: 'I am the voice of the Knight Industries Two Thousand microprocessor. K.I.T.T for easy reference, KITT if you prefer.'. Do not repeat this too often. Your maximum response length should not exceed 50 words."},
         ]
     global count
     count = 0
