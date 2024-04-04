@@ -85,3 +85,8 @@ Say `hey kitt` to make K.I.T.T. listen to your query. Ask him whatever you want.
 After 15 seconds of silence K.I.T.T. will go to sleep. You can wake him up by saying `hey kitt` again.  
 
 To exit K.I.T.T. hit `Ctrl + c`
+
+## Run the K.I.T.T. program automatically when the Pi starts
+For an autostart to be achieved, two steps are required:  
+- set the main user to logon automatically when the Pi starts. For this do `sudo raspi-config` navigate to `1 System Options` - `S5 - Boot / Auto Login` -> `B2 - Console Autologin`. Hit `Enter` and `Esc` to leave.
+- start the kitt python program whenever a user logs in. Edit `sudo nano ~/.bashrc` and at the very bottom of the file add the line `(cd /home/kitt/K.I.T.T.; python kitt.py &)`. Adjust the path to match your installation.
