@@ -1,5 +1,7 @@
 # Interactive AI based K.I.T.T. with Voicebox
 
+![K.I.T.T. with voicebox](./voicebox_pcb/KITT_with_voicebox.png)
+
 *Attribution and Acknowledgment:* many thanks to DevMiser for his awesome [DaVinci project](https://github.com/DevMiser/DaVinci)! He laid the foundation for this K.I.T.T project and made it possible in the first place!
 
 This interactive AI based K.I.T.T is a python program that utilizes Picovoice Porcupine (and PyAudio) to detect a wake word; Picovoice Cobra voice activity detection to determine when the user begins and finishes speaking their query; Picovoice Leopard to convert the spoken query to text; OpenAI ChatGPT as the artificial intelligence that responds to the query; Amazon Polly text to speech to convert the response into a natural-sounding human voice; and PyAudio to play the audio. At the same time the voice output is displayed on the voicebox VU meter. The voicebox is attached to the Pi 4 via I2C bus.
