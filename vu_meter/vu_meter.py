@@ -1,3 +1,7 @@
+# the following program is provided by RetoHB - https://github.com/RetoHB
+
+# this program controls the K.I.T.T. voicebox PCB. It plays an mp3 file and displays the amplitude on the voicebox VU meter.
+
 import wave
 import sounddevice
 from pydub import AudioSegment
